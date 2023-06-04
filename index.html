@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Graduation</title>
+    <style>
+        body {
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 48px;
+            text-align: center;
+        }
+    </style>
+    <script>
+        const targetDate = new Date("June 8, 2024 00:00:00").getTime()
+
+        const countdown = setInterval(() => {
+            const now = new Date().getTime()
+
+            const diff = targetDate - now
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24))
+            document.getElementById("countdown").innerHTML = `${days} days away`
+
+            const weeks = Math.floor(days / 7)
+            document.getElementById("weeks").innerHTML = `${weeks} weeks away`
+
+            const months = Math.floor(days / 30)
+            document.getElementById("months").innerHTML = `${months} months away`
+
+            if (distance < 0) {
+                clearInterval(countdown)
+                document.getElementById("countdown").innerHTML = "today!"
+            }
+        }, 1000)
+    </script>
+</head>
+<body>  
+    <h1>Graduation is&nbsp;</h1>
+    <h1 id="countdown"></h1>
+    <h1 id="weeks"></h1>
+    <h1 id="months"></h1>
+</body>
+</html>
